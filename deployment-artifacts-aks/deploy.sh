@@ -40,6 +40,10 @@ az group deployment create -g $azureResourceGroup --template-file $tailwindInfra
   --parameters servicePrincipalId=$azureClientID servicePrincipalSecret=$azureClientSecret \
   sqlServerAdministratorLogin=$sqlServerUser sqlServerAdministratorLoginPassword=$sqlServePassword \
   aksVersion=1.16.13 pgversion=10
+  
+  
+printf "\n*** Deploying resources: group don... ***\n"  
+printf "\n*** Start Extentions:  ***\n"  
 
 # # Application Insights (using preview extension)
 az extension add -n application-insights
