@@ -33,11 +33,6 @@ printf "\n*** Cloning Tailwind code repository... ***\n"
 git clone https://github.com/microsoft/TailwindTraders-Backend.git
 git -C TailwindTraders-Backend checkout ed86d5f
 
-# Update lastst version azure cli
-printf "\n*** Update cli: this will take a few minutes... ***\n"
-
-#curl -sL https://aka.ms/InstallAzureCLIDeb 
-
 
 # Deploy backend infrastructure
 printf "\n*** Deploying resources: this will take a few minutes... ***\n"
@@ -52,8 +47,8 @@ printf "\n*** Deploying resources: group don... ***\n"
 printf "\n*** Start Extentions:  ***\n"  
 
 # # Application Insights (using preview extension)
-#az extension add --name application-insights --debug
-#instrumentationKey=$(az monitor app-insights component show --app tt-app-insights --resource-group $azureResourceGroup --query instrumentationKey -o tsv)  
+az extension add --name application-insights
+instrumentationKey=$(az monitor app-insights component show --app tt-app-insights --resource-group $azureResourceGroup --query instrumentationKey -o tsv)  
 
 # Create postgres DB, Disable SSL, and set Firewall
 printf "\n*** Create stockdb Postgres database... ***\n"
