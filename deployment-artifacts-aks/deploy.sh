@@ -36,7 +36,7 @@ git -C TailwindTraders-Backend checkout ed86d5f
 # Update lastst version azure cli
 printf "\n*** Update cli: this will take a few minutes... ***\n"
 
-curl -sL https://aka.ms/InstallAzureCLIDeb 
+#curl -sL https://aka.ms/InstallAzureCLIDeb 
 
 
 # Deploy backend infrastructure
@@ -52,7 +52,7 @@ printf "\n*** Deploying resources: group don... ***\n"
 printf "\n*** Start Extentions:  ***\n"  
 
 # # Application Insights (using preview extension)
-az extension add --name application-insights --debug
+#az extension add --name application-insights --debug
 instrumentationKey=$(az monitor app-insights component show --app tt-app-insights --resource-group $azureResourceGroup --query instrumentationKey -o tsv)  
 
 # Create postgres DB, Disable SSL, and set Firewall
