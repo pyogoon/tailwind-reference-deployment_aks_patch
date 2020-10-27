@@ -35,6 +35,9 @@ git -C TailwindTraders-Backend checkout ed86d5f
 
 # Update lastst version azure cli
 printf "\n*** Update cli: this will take a few minutes... ***\n"
+grep . /etc/*-release
+
+az --version
 az upgrade -y
 
 
