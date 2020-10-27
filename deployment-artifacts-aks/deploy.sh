@@ -53,7 +53,7 @@ printf "\n*** Start Extentions:  ***\n"
 
 # # Application Insights (using preview extension)
 #az extension add --name application-insights --debug
-instrumentationKey=$(az monitor app-insights component show --app tt-app-insights --resource-group $azureResourceGroup --query instrumentationKey -o tsv)  
+#instrumentationKey=$(az monitor app-insights component show --app tt-app-insights --resource-group $azureResourceGroup --query instrumentationKey -o tsv)  
 
 # Create postgres DB, Disable SSL, and set Firewall
 printf "\n*** Create stockdb Postgres database... ***\n"
