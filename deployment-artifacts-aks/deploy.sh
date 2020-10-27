@@ -33,6 +33,11 @@ printf "\n*** Cloning Tailwind code repository... ***\n"
 git clone https://github.com/microsoft/TailwindTraders-Backend.git
 git -C TailwindTraders-Backend checkout ed86d5f
 
+# Update lastst version azure cli
+printf "\n*** Update cli: this will take a few minutes... ***\n"
+az upgrade -y
+
+
 # Deploy backend infrastructure
 printf "\n*** Deploying resources: this will take a few minutes... ***\n"
 
