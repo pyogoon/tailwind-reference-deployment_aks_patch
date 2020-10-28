@@ -47,10 +47,10 @@ printf "\n*** Deploying resources: group don... ***\n"
 printf "\n*** Start Extentions:  ***\n"  
 
 # # Application Insights (using preview extension)
-#az extension add --name application-insights
-#instrumentationKey=$(az monitor app-insights component show --app tt-app-insights --resource-group $azureResourceGroup --query instrumentationKey -o tsv)  
+az extension add --name application-insights --debug
+instrumentationKey=$(az monitor app-insights component show --app tt-app-insights --resource-group $azureResourceGroup --query instrumentationKey -o tsv)  
 
-instrumentationKey=pyogoon1234
+#instrumentationKey=pyogoon1234
 # Create postgres DB, Disable SSL, and set Firewall
 printf "\n*** Create stockdb Postgres database... ***\n"
 
@@ -65,7 +65,7 @@ printf "\n*** Installing Tiller on Kubernets cluster... ***\n"
 AKS_CLUSTER=$(az aks list --resource-group $azureResourceGroup --query [0].name -o tsv)
 az aks get-credentials --name $AKS_CLUSTER --resource-group $azureResourceGroup --admin
 kubectl apply -f https://raw.githubusercontent.com/Azure/helm-charts/master/docs/prerequisities/helm-rbac-config.yaml
-#helm init --wait --service-account tiller
+helm init --wait --service-account tiller
 
 # Create Kubernetes Service Account
 printf "\n*** Create Helm service account in Kubernetes... ***\n"
