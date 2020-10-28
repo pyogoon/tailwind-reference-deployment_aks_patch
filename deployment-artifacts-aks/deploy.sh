@@ -37,20 +37,20 @@ git -C TailwindTraders-Backend checkout ed86d5f
 # Deploy backend infrastructure
 printf "\n*** Deploying resources: this will take a few minutes... ***\n"
 
-#az group deployment create -g $azureResourceGroup --template-file $tailwindInfrastructure \
-#  --parameters servicePrincipalId=$azureClientID servicePrincipalSecret=$azureClientSecret \
-#  sqlServerAdministratorLogin=$sqlServerUser sqlServerAdministratorLoginPassword=$sqlServePassword \
-#  aksVersion=1.16.13 pgversion=10
+az group deployment create -g $azureResourceGroup --template-file $tailwindInfrastructure \
+  --parameters servicePrincipalId=$azureClientID servicePrincipalSecret=$azureClientSecret \
+  sqlServerAdministratorLogin=$sqlServerUser sqlServerAdministratorLoginPassword=$sqlServePassword \
+  aksVersion=1.16.13 pgversion=10
   
   
 printf "\n*** Deploying resources: group don... ***\n"  
 printf "\n*** Start Extentions:  ***\n"  
 
 # # Application Insights (using preview extension)
-#az extension add --name application-insights
-#instrumentationKey=$(az monitor app-insights component show --app tt-app-insights --resource-group $azureResourceGroup --query instrumentationKey -o tsv)  
+az extension add --name application-insights
+instrumentationKey=$(az monitor app-insights component show --app tt-app-insights --resource-group $azureResourceGroup --query instrumentationKey -o tsv)  
 
-instrumentationKey=a3ed51ed-9f93-4eb4-8e86-9a2a4250355b
+
 # Create postgres DB, Disable SSL, and set Firewall
 printf "\n*** Create stockdb Postgres database... ***\n"
 
